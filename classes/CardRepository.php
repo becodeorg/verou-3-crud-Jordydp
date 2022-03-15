@@ -28,9 +28,14 @@ class CardRepository
     public function get(): array
     {
         // TODO: replace dummy data by real one
+        $sql = "SELECT * FROM soccer_players";
+        $stmt = $this->databaseManager->connection->query($sql);
+        while ($row = $stmt->fetch()){
+            echo "<br>".$row['name'];
+        }
         return [
-            ['name' => 'dummy one'],
-            ['name' => 'dummy two'],
+            $stmt
+
         ];
 
         // We get the database connection first, so we can apply our queries with it

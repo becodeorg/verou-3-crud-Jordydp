@@ -27,14 +27,14 @@ $action = $_GET['action'] ?? null;
 
 // Load the relevant action
 // This system will help you to only execute the code you want, instead of all of it (or complex if statements)
-/*switch ($action) {
+switch ($action) {
     case 'create':
-        $this->create();
+        create();
         break;
     default:
-        $this->overview();
+        overview();
         break;
-}*/
+}
 
 function overview()
 {
