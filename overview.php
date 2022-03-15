@@ -12,8 +12,8 @@
 <h1>Goodcard - track your collection of Soccer player cards</h1>
 
 <ul>
-    <?php foreach ($cards as $card) : ?>
-        <li><?= $card['name'] ?></li>
+    <?php foreach ($_SESSION['cards'] as $card) : ?>
+        <li><?= $card['name'] . " ". $card['country'] . " " . $card['possition'] . " " . $card['club'] . " " . $card['age'] ?></li>
     <?php endforeach; ?>
 </ul>
 

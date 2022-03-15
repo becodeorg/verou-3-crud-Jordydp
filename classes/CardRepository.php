@@ -29,14 +29,12 @@ class CardRepository
     {
         // TODO: replace dummy data by real one
         $sql = "SELECT * FROM soccer_players";
-        $stmt = $this->databaseManager->connection->query($sql);
-        while ($row = $stmt->fetch()){
-            echo "<br>".$row['name'];
-        }
-        return [
-            $stmt
+        $stmt = $this->databaseManager->connection->query($sql, PDO::FETCH_ASSOC);
+        return $stmt->fetchAll();
+       /*return[
+            $stmt->fetchAll();
 
-        ];
+        ]*/
 
         // We get the database connection first, so we can apply our queries with it
         // return $this->databaseManager->connection-> (runYourQueryHere)

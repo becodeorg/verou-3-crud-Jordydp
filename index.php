@@ -7,6 +7,8 @@ declare (strict_types = 1);
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
+//start session
+session_start();
 
 // Load you classes
 require_once 'config.php';
@@ -20,6 +22,7 @@ $databaseManager->connect();
 // Update the naming if you'd like to work with another collection
 $cardRepository = new CardRepository($databaseManager);
 $cards = $cardRepository->get();
+$_SESSION['cards'] = $cards;
 
 // Get the current action to execute
 // If nothing is specified, it will remain empty (home should be loaded)
