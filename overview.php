@@ -9,12 +9,39 @@
 </head>
 <body>
 
+<h1>Add a player to your collection</h1>
+<form method="post" action="">
+    <label for="name">First name:</label><br>
+    <input type="text" name="name" id="name" placeholder="name"><br>
+    <label for="name">country:</label><br>
+    <input type="text" name="country" id="country" placeholder="country"><br>
+    <label for="name">Position:</label><br>
+    <input type="text" name="position" id="position" placeholder="position"><br>
+    <label for="name">Club</label><br>
+    <input type="text" name="club" id="club" placeholder="club"><br>
+    <label for="name">Age:</label><br>
+    <input type="number" name="age" id="age" placeholder="age"><br>
+    <input type="submit" name="action" value="create">
+</form>
+
 <h1>Goodcard - track your collection of Soccer player cards</h1>
 
-<ul>
-    <?php foreach ($_SESSION['cards'] as $card) : ?>
-        <li><?= $card['name'] . " ". $card['country'] . " " . $card['possition'] . " " . $card['club'] . " " . $card['age'] ?></li>
-    <?php endforeach; ?>
-</ul>
-
+<table>				<!-- create an table object -->
+    <tr>
+        <th>ID</th>     <!-- "tr" represents a row -->
+        <th>Name</th>	<!-- use "th" to indicate header row -->
+        <th>Nationality</th>
+        <th>Position</th>
+        <th>Club</th>
+        <th>Age</th>
+    </tr>
+        <?php foreach ($_SESSION['cards'] as $card) : ?>
+        <td><?=$card['id']?></td>
+        <td><?=$card['name']?></td>
+        <td><?=$card['country']?></td>
+        <td><?=$card['position']?></td>
+        <td><?=$card['club']?></td>
+        <td><?=$card['age']?></td>
+    <tr>
+    <?php endforeach;?>
 </body>

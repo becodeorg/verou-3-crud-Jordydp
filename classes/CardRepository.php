@@ -17,7 +17,6 @@ class CardRepository
     {
 
     }
-
     // Get one
     public function find(): array
     {
