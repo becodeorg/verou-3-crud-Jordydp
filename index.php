@@ -26,7 +26,7 @@ $_SESSION['cards'] = $cards;
 
 // Get the current action to execute
 // If nothing is specified, it will remain empty (home should be loaded)
-$action = $_POST['action'] ?? null;
+$action = $_GET['action'] ?? null;
 
 // Load the relevant action
 // This system will help you to only execute the code you want, instead of all of it (or complex if statements)
@@ -48,19 +48,20 @@ function overview()
 
 function create(databaseManager $database)
 {
+    require 'create.php';
     // TODO: provide the create logic
 
     // Get values from submitted from
-    $name = $_POST['name'];
-    $country = $_POST['country'];
-    $position = $_POST['position'];
-    $club = $_POST['club'];
-    $age = $_POST['age'];
+    $name = $_GET['name'];
+    $country = $_GET['country'];
+    $position = $_GET['position'];
+    $club = $_GET['club'];
+    $age = $_GET['age'];
 
     $sql= "insert into soccer_players(name, country, position, club, age)values('$name', '$country', '$position', '$club', '$age')";
     try{
         $database->connection->exec($sql);
-        echo "entry created successfully";
+        header('Location:index.php');
     } catch (PDOException $e) {
         echo "<br>" . $e->getMessage();
     }

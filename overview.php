@@ -9,20 +9,8 @@
 </head>
 <body>
 
-<h1>Add a player to your collection</h1>
-<form method="post" action="">
-    <label for="name">First name:</label><br>
-    <input type="text" name="name" id="name" placeholder="name"><br>
-    <label for="name">country:</label><br>
-    <input type="text" name="country" id="country" placeholder="country"><br>
-    <label for="name">Position:</label><br>
-    <input type="text" name="position" id="position" placeholder="position"><br>
-    <label for="name">Club</label><br>
-    <input type="text" name="club" id="club" placeholder="club"><br>
-    <label for="name">Age:</label><br>
-    <input type="number" name="age" id="age" placeholder="age"><br>
-    <input type="submit" name="action" value="create">
-</form>
+<h1>Add a player to your collection</h1><a></a>
+<a href="create.php">Add a new player</a>
 
 <h1>Goodcard - track your collection of Soccer player cards</h1>
 
