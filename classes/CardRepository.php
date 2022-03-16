@@ -15,7 +15,23 @@ class CardRepository
 
     public function create(): void
     {
+        require 'create.php';
+        // TODO: provide the create logic
 
+        // Get values from submitted from
+        $name = $_GET['name'];
+        $country = $_GET['country'];
+        $position = $_GET['position'];
+        $club = $_GET['club'];
+        $age = $_GET['age'];
+
+        $sql= "insert into soccer_players(name, country, position, club, age)values('$name', '$country', '$position', '$club', '$age')";
+        try{
+            $this->databaseManager->connection->exec($sql);
+            header('Location:index.php');
+        } catch (PDOException $e) {
+            echo "<br>" . $e->getMessage();
+        }
     }
     // Get one
     public function find(): array

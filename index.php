@@ -32,7 +32,7 @@ $action = $_GET['action'] ?? null;
 // This system will help you to only execute the code you want, instead of all of it (or complex if statements)
 switch ($action) {
     case 'create':
-        create($databaseManager);
+        $cardRepository->create($databaseManager);
         break;
     default:
         overview();
@@ -46,23 +46,3 @@ function overview()
     require 'overview.php';
 }
 
-function create(databaseManager $database)
-{
-    require 'create.php';
-    // TODO: provide the create logic
-
-    // Get values from submitted from
-    $name = $_GET['name'];
-    $country = $_GET['country'];
-    $position = $_GET['position'];
-    $club = $_GET['club'];
-    $age = $_GET['age'];
-
-    $sql= "insert into soccer_players(name, country, position, club, age)values('$name', '$country', '$position', '$club', '$age')";
-    try{
-        $database->connection->exec($sql);
-        header('Location:index.php');
-    } catch (PDOException $e) {
-        echo "<br>" . $e->getMessage();
-    }
-}
