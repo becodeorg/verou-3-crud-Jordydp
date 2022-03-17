@@ -1,3 +1,13 @@
+<?php
+
+// Require the correct variable type to be used (no auto-converting)
+declare (strict_types = 1);
+
+// Show errors so we get helpful information
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -22,14 +32,22 @@
         <th>Position</th>
         <th>Club</th>
         <th>Age</th>
+        <th>Edit</th>
+        <th>Delete</th>
     </tr>
-        <?php foreach ($_SESSION['cards'] as $card) : ?>
-        <td><?=$card['id']?></td>
-        <td><?=$card['name']?></td>
-        <td><?=$card['country']?></td>
-        <td><?=$card['position']?></td>
-        <td><?=$card['club']?></td>
-        <td><?=$card['age']?></td>
+        <?php foreach ($cards as $row) : ?>
+        <td><?=$row['id']?></td>
+        <td><?=$row['name']?></td>
+        <td><?=$row['country']?></td>
+        <td><?=$row['position']?></td>
+        <td><?=$row['club']?></td>
+        <td><?=$row['age']?></td>
+        <td>
+            <a href="edit.php?id=<?=$row['id']?>">edit</a>
+        </td>
+        <td>
+            <a>Delete</a>
+        </td>
     <tr>
     <?php endforeach;?>
 </body>

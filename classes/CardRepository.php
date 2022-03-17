@@ -57,6 +57,13 @@ class CardRepository
 
     public function update(): void
     {
+        //require 'edit.php';
+        echo "kat";
+
+        $query = "UPDATE soccer_players SET `name`= '{$_POST['name']}',`country` = '{$_POST['country']}',`position` = '{$_POST['position']}', `club`='{$_POST['club']}',`age` = {$_POST['age']}
+        WHERE id = '{$_GET['id']}';";
+        $this->databaseManager->connection->query($query);
+        header('location: index.php');
 
     }
 
