@@ -73,5 +73,15 @@ class CardRepository
     $this->databaseManager->connection->query($query);
     header('location: index.php');
     }
+    public function show(): object
+    {
+        $query = "SELECT * FROM soccer_players WHERE id='{$_GET['id']}'";
+        $result = $this->databaseManager->connection->query($query);
+        $row = $result->fetch(PDO::FETCH_OBJ);
+        return $row;
+
+
+
+    }
 
 }

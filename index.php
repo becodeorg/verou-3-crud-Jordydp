@@ -45,6 +45,9 @@ switch ($action) {
     case 'delete':
         delete($cardRepository);
         break;
+    case 'show':
+        show($cardRepository);
+        break;
     default:
         overview($cardRepository);
         break;
@@ -69,4 +72,10 @@ function update($cardRepository)
 function delete($cardRepository)
 {
     $cardRepository->delete();
+}
+function show($cardRepository)
+{
+    $row = $cardRepository->show();
+    require 'show.php';
+
 }

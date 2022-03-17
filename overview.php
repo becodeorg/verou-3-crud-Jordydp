@@ -25,9 +25,9 @@ error_reporting(E_ALL);
 <h1>Goodcard - track your collection of Soccer player cards</h1>
 
 <table>				<!-- create an table object -->
-    <tr>
-        <th>ID</th>     <!-- "tr" represents a row -->
-        <th>Name</th>	<!-- use "th" to indicate header row -->
+    <tr>            <!-- "tr" represents a row -->
+        <th>ID</th>     <!-- use "th" to indicate header row -->
+        <th>Name</th>
         <th>Nationality</th>
         <th>Position</th>
         <th>Club</th>
@@ -35,6 +35,7 @@ error_reporting(E_ALL);
         <th>Edit</th>
         <th>Delete</th>
     </tr>
+    <tr>
         <?php foreach ($cards as $row) : ?>
         <td><?=$row['id']?></td>
         <td><?=$row['name']?></td>
@@ -48,6 +49,9 @@ error_reporting(E_ALL);
         <td>
             <a href="delete.php?id=<?=$row['id']?>&name=<?=$row['name']?>&country=<?=$row['country']?>&position=<?=$row['position']?>&club=<?=$row['club']?>&age=<?=$row['age']?>">Delete</a>
         </td>
-    <tr>
+    <td>
+        <a href="index.php?id=<?=$row['id']?>&action=show">Detail</a>
+    </td>
+    </tr>
     <?php endforeach;?>
 </body>
