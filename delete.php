@@ -8,10 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-<?php echo "<pre>";
-print_r($_GET);
-echo "</pre>";
-?>
 <h1>Are you sure you want to delete this player</h1>
 <form method="post" action="index.php?id=<?= $_GET['id'] ?>&action=delete">
     <label for="name">First name:</label><br>

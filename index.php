@@ -12,12 +12,7 @@ error_reporting(E_ALL);
 require_once 'config.php';
 require_once 'classes/DatabaseManager.php';
 require_once 'classes/CardRepository.php';
-echo "<pre>";
-print_r($_POST);
-echo "</pre>";
-echo "<pre>";
-print_r($_GET);
-echo "</pre>";
+
 $databaseManager = new DatabaseManager($config['host'], $config['user'], $config['password'], $config['dbname']);
 $databaseManager->connect();
 
@@ -64,14 +59,17 @@ function overview($cardRepository)
 function create($cardRepository)
 {
     $cardRepository->create();
+    require 'create.php';
 }
 function update($cardRepository)
 {
     $cardRepository->update();
+    require 'edit.php';
 }
 function delete($cardRepository)
 {
     $cardRepository->delete();
+    require 'delete.php';
 }
 function show($cardRepository)
 {
