@@ -42,6 +42,9 @@ switch ($action) {
         echo "AAP";
         update($cardRepository);
         break;
+    case 'delete':
+        delete($cardRepository);
+        break;
     default:
         overview($cardRepository);
         break;
@@ -62,4 +65,8 @@ function create($cardRepository)
 function update($cardRepository)
 {
     $cardRepository->update();
+}
+function delete($cardRepository)
+{
+    $cardRepository->delete();
 }

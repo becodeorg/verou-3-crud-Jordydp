@@ -46,7 +46,7 @@ error_reporting(E_ALL);
             <a href="edit.php?id=<?=$row['id']?>">edit</a>
         </td>
         <td>
-            <a>Delete</a>
+            <a href="delete.php?id=<?=$row['id']?>&name=<?=$row['name']?>&country=<?=$row['country']?>&position=<?=$row['position']?>&club=<?=$row['club']?>&age=<?=$row['age']?>">Delete</a>
         </td>
     <tr>
     <?php endforeach;?>
